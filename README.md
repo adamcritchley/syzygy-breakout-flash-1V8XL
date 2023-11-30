@@ -3,21 +3,24 @@ SYZYGY 56 pin Breakout Board that uses smart VIO to support any voltage flash ch
 
 # Building Firmware
 A prebuilt firmware has been provided in the 'firmware' directory. If you want to customize the SMART VIO then modify 'szg-flash-std.json' with the custom power values and use the official [SYZYGY tools](https://github.com/SYZYGYfpga/syzygy-tools/) repo to build the firmware. 
+
+```bash
 python ..\..\syzygy-tools\dna-tools\syzygy-tools.py -d ..\szg-dna\SZG-FLASH\szg-flash-std.json -f ..\..\syzygy-tools\pod-fw\avr-dna-fw-main.hex
+```
 
 # Fabrication
-I use JLCPCB and OSH Park. I used the DRC rules for OSH Park so the board doesn't have any special fabrication requirements. Just pick your favorite PCB shop and color.
+I used JLCPCB with 1oz inner and outer copper weight and the standard JLC041611-7628 impedance control.
 
 # FPGA Development
-The board has silkscreen pin designators for the Opal Kelly XEM8320. Theoretically you can use this board with any FPGA dev board that has a double-wide SYZYGY connector then you could use the respective controller for your flash device OR find someway to expose it to AXI and PS to use it with flashrom. As I figure out specific tools that work well then I'll update this README with tutorials.
+The board has silkscreen pin designators for the Opal Kelly XEM8320. Theoretically you can use this board with any FPGA dev board that has a double-wide SYZYGY connector along with the respective controller for your flash device OR find someway to expose it to AXI and PS to use it with flashrom. As I figure out specific tools that work well then I'll update this README with tutorials.
 
 # BOM
 You can find datasheets for each component in the datasheets directory. All of the components can be bought from Mouser or Digikey. 
-* Epson SG5032VAN
+* Epson SG5032VAN (up to 100 MHz)
 * Texas Instrument TLV1117LV
 * Aries 48-6554-11
 * KF2510 8-pin Vertical Connector
 
 # Future Work
-This board is still under active development. As I find/create IP and software that works with this board then I'll update this README with tutorials on how to use them. Feel free to create a GitHub issue detailing your own success story or use case.
+This board design is complete and tested with the Opal Kelly XEM8320. As I find/create IP and software that works with this board then I'll update this README with tutorials on how to use them. Feel free to create a GitHub issue detailing your own success story or use case.
 
